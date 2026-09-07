@@ -26,10 +26,26 @@ public class Main
             list.add(st_i);
             System.out.println();
         }
+        // for(Student s : list)
+        // {
+        //     System.out.println(s);
+        // }  
+        System.out.print("Enter Student ID to search : ");
+        int search_id = scan.nextInt();
+        boolean found = false;
         for(Student s : list)
         {
-            System.out.println(s);
-        }  
-
+            if(s.id == search_id)
+            {
+                found = true;
+                System.out.print("Student Found :");
+                System.out.print(s);
+                break;
+            }
+        }
+        if(!found)
+        {
+            System.out.print("Student with ID " + search_id + " is not found");
+        }
     }
 }
