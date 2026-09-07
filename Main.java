@@ -30,6 +30,8 @@ public class Main
         // {
         //     System.out.println(s);
         // }  
+
+        //searching student
         System.out.print("Enter Student ID to search : ");
         int search_id = scan.nextInt();
         boolean found = false;
@@ -39,13 +41,38 @@ public class Main
             {
                 found = true;
                 System.out.print("Student Found :");
-                System.out.print(s);
+                System.out.println(s);
                 break;
             }
         }
         if(!found)
         {
-            System.out.print("Student with ID " + search_id + " is not found");
+            System.out.println("Student with ID " + search_id + " is not found");
+        }
+
+        //Deleting student
+        System.out.print("Enter Student ID to delete : ");
+        int delete_id = scan.nextInt();
+        boolean delete = false;
+        Iterator<Student> iterator = list.iterator();
+        while(iterator.hasNext())
+        {
+            Student s = iterator.next();
+            if(s.id == delete_id)
+            {
+                iterator.remove();
+                delete = true;
+                System.out.println("Student Deleted successfully");
+                break;
+            }
+        }
+        if(!delete)
+        {
+            System.out.println("Student with id "+ delete_id + " is not found");
+        }
+        for(Student s : list)
+        {
+            System.out.println(s);
         }
     }
 }
